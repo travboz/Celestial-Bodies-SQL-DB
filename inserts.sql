@@ -1,0 +1,74 @@
+-- inserts for SQL
+
+-- inserting galaxies
+INSERT INTO galaxy(name, type, stellar_mass_in_solar_masses, average_distance_from_earth_in_light_years, spiral_galaxy) VALUES('Milky Way', 'Spiral', 6.00E10, 100000, FALSE);
+INSERT INTO galaxy(name, type, stellar_mass_in_solar_masses, average_distance_from_earth_in_light_years, spiral_galaxy) VALUES('Andromeda', 'Spiral', 8.50E10, 200000, FALSE);
+INSERT INTO galaxy(name, type, stellar_mass_in_solar_masses, average_distance_from_earth_in_light_years, spiral_galaxy) VALUES('Triangulum', 'Spiral', 1.00E10, 300000, FALSE);
+INSERT INTO galaxy(name, type, stellar_mass_in_solar_masses, average_distance_from_earth_in_light_years, spiral_galaxy) VALUES('Sombrero', 'Barred Spiral', 3.00E10, 400000, TRUE);
+INSERT INTO galaxy(name, type, stellar_mass_in_solar_masses, average_distance_from_earth_in_light_years, spiral_galaxy) VALUES('Whirlpool', 'Spiral', 2.50E10, 500000, TRUE);
+INSERT INTO galaxy(name, type, stellar_mass_in_solar_masses, average_distance_from_earth_in_light_years, spiral_galaxy) VALUES('Centaurus A', 'Elliptical', 2.80E10, 600000, FALSE);
+
+-- inserting stars
+INSERT INTO star(name, stellar_type, distance_in_light_years, apparent_magnitude, galaxy_id) VALUES('Sun', 'G2V', 0, -26.74, (SELECT galaxy_id FROM galaxy WHERE name = 'Milky Way'));
+INSERT INTO star(name, stellar_type, distance_in_light_years, apparent_magnitude, galaxy_id) VALUES('Sirius', 'A1Vm', 8.6, -1.46, (SELECT galaxy_id FROM galaxy WHERE name = 'Andromeda'));
+INSERT INTO star(name, stellar_type, distance_in_light_years, apparent_magnitude, galaxy_id) VALUES('Alpha Centauri A', 'G2V', 4.37, 0.01, (SELECT galaxy_id FROM galaxy WHERE name = 'Triangulum'));
+INSERT INTO star(name, stellar_type, distance_in_light_years, apparent_magnitude, galaxy_id) VALUES('Betelgeuse', 'M1-2Ia-Iab', 642.5, 0.42, (SELECT galaxy_id FROM galaxy WHERE name = 'Sombrero'));
+INSERT INTO star(name, stellar_type, distance_in_light_years, apparent_magnitude, galaxy_id) VALUES('Vega', 'A0V', 25.04, 0.03, (SELECT galaxy_id FROM galaxy WHERE name = 'Whirlpool'));
+INSERT INTO star(name, stellar_type, distance_in_light_years, apparent_magnitude, galaxy_id) VALUES('Arcturus', 'K1.5IIIa', 36.7, -0.04, (SELECT galaxy_id FROM galaxy WHERE name = 'Centaurus A'));
+
+-- inserting spacecraft
+INSERT INTO spacecraft(name, mission, purpose, date_launched, still_in_use) VALUES('Voyager 1', 'Voyager program', 'Interstellar exploration', '1977-09-05', FALSE);
+INSERT INTO spacecraft(name, mission, purpose, date_launched, still_in_use) VALUES('Cassini', 'Cassini-Huygens mission', 'Study of Saturn and its moons', '1997-10-15', FALSE);
+INSERT INTO spacecraft(name, mission, purpose, date_launched, still_in_use) VALUES('Hubble Space Telescope', 'Hubble Space Telescope mission', 'Observing distant galaxies and celestial objects', '1990-04-24', TRUE);
+INSERT INTO spacecraft(name, mission, purpose, date_launched, still_in_use) VALUES('Chang''e 4', 'Chang''e program', 'Exploration of the lunar far side', '2018-12-07', TRUE);
+INSERT INTO spacecraft(name, mission, purpose, date_launched, still_in_use) VALUES('Mars Curiosity Rover', 'Mars Science Laboratory mission', 'Investigation of Martian climate and geology', '2011-11-26', TRUE);
+
+-- inserting planets
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Mercury', 4880, 3.30E+23, 88, 0, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Venus', 12104, 4.87E+24, 225, 0, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Earth', 12742, 5.97E+24, 365.25, 1, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Mars', 6779, 6.42E+23, 687, 2, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Jupiter', 139820, 1.90E+27, 4333, 79, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Saturn', 116460, 5.68E+26, 10759, 83, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Uranus', 50724, 8.68E+25, 30688, 27, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Neptune', 49244, 1.02E+26, 60182, 14, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Pluto', 2377, 1.30E+22, 90560, 5, 1);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Mercury', 4880, 3.30E+23, 88, 0, 2);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('HD 209458 b', 128000, 1.49E+27, 3.5247189, 0, 2);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Kepler-10 b', 29373, 4.56E+24, 0.84, 0, 2);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('TRAPPIST-1d', 8190, 4.10E+23, 4.05, 0, 2);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Gliese 876 b', 12687, 1.93E+25, 1.94, 0, 2);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Proxima Centauri b', 18204, 5.00E+22, 11.2, 0, 3);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('Kepler-442b', 26341, 2.34E+24, 112.3, 0, 3);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('HD 40307g', 17518, 8.20E+24, 197.8, 0, 3);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('K2-18 b', 27869, 6.60E+24, 32, 0, 3);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('TOI 700 d', 15620, 5.30E+23, 37.4, 0, 3);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('LHS 3844 b', 10350, 1.69E+23, 11.3, 0, 3);
+INSERT INTO planet(name, mean_diameter_in_km, mass_in_kg, orbital_period, number_of_moons, star_id) VALUES('New Planet', 15000, 8.00E+24, 500, 2, 2);
+
+-- inserting moons
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Luna', 3476, 7.342e22, 27.3, 3);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Phobos', 22.2, 1.0659e16, 0.3, 4);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Deimos', 12.4, 1.4762e15, 1.3, 4);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Ganymede', 5268.2, 1.4819e23, 7.2, 5);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Callisto', 4821.6, 1.0759e23, 16.7, 5);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Io', 3643.2, 8.9319e22, 1.8, 5);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Europa', 3121.6, 4.797e22, 3.5, 5);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Titan', 5150, 1.3455e23, 15.9, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Rhea', 1527, 2.306e21, 4.5, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Triton', 2706.8, 2.1479e22, 5.9, 8);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Tethys', 1062, 6.174e20, 1.9, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Dione', 1123, 1.095e21, 2.7, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Ariel', 1157.8, 1.251e21, 2.5, 7);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Umbriel', 1169.4, 1.275e21, 4.1, 7);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Charon', 1212, 1.586e21, 6.4, 9);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Oberon', 1522.8, 3.014e21, 13.5, 7);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Enceladus', 504.2, 1.08e20, 1.4, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Iapetus', 1470, 1.805e21, 79, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Hyperion', 270.6, 5.62e18, 21.3, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Mimas', 396.4, 3.75e19, 0.9, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Miranda', 472.6, 6.59e19, 1.4, 7);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Olympus Mons', 624, 1.48e20, 0.9, 4);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Triton', 2706.8, 2.1479e22, 5.9, 8);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Proteus', 420, 5.4e19, 1.1, 6);
+INSERT INTO moon(name, mean_diameter_in_km, mass_in_kg, orbital_period, planet_id) VALUES('Phoebe', 213.2, 5.17e18, 550.4, 6);
