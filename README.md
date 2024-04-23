@@ -30,4 +30,5 @@ There exist five tables with each table containing related information pertainin
 | `spacecraft`  | Contains data about spacecraft, including their names, missions, purposes, launch dates, and whether they are still in use. |
 
 This project was created to follow the FreeCodeCamp certification project.
+
 Project link: [Celestial Bodies Database](https://www.freecodecamp.org/learn/relational-database/build-a-celestial-bodies-database-project/build-a-celestial-bodies-database)
